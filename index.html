@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Modern Responsive Design</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- HEADER with Responsive Navigation -->
+        <header>
+            <div class="header-inner">
+                <div class="logo">Design Studio</div>
+                <button class="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="menuBtn">
+                    ☰
+                </button>
+                <nav id="navMenu">
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <div class="content-wrapper">
+                <!-- Hero Section -->
+                <section class="hero" id="home">
+                    <div>
+                        <h1>Responsive Design Done Right</h1>
+                        <p>Master the art of building layouts that work seamlessly across all devices. From mobile-first CSS to fluid typography, learn the modern techniques that professional developers use.</p>
+                        <button class="btn">Get Started</button>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #2563eb, #10b981); border-radius: 12px; min-height: 300px; display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">
+                        📱
+                    </div>
+                </section>
+
+                <!-- Features Section -->
+                <section class="features" id="features">
+                    <h2>Core Concepts</h2>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">📐</div>
+                            <h3>CSS Grid & Flexbox</h3>
+                            <p>Master two-dimensional (Grid) and one-dimensional (Flexbox) layouts for ultimate layout control.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">📱</div>
+                            <h3>Mobile-First Approach</h3>
+                            <p>Build base styles for mobile, then enhance with media queries for larger screens. Complexity grows with space.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">💧</div>
+                            <h3>Fluid Typography</h3>
+                            <p>Use clamp() for typography that scales smoothly. Font sizes adapt between min and max values.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">♿</div>
+                            <h3>Accessibility First</h3>
+                            <p>Touch targets of 44x44px minimum. Support zoom up to 500%. WCAG compliant design is non-negotiable.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">🎯</div>
+                            <h3>Content Breakpoints</h3>
+                            <p>Design for content breakage, not device models. Breakpoints adapt to where your design naturally breaks.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">⚡</div>
+                            <h3>Performance Matters</h3>
+                            <p>Responsive design means optimal images, efficient CSS, and fast load times across all devices.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Projects Section -->
+                <section class="projects" id="projects">
+                    <h2>Example Projects</h2>
+                    <div class="projects-grid">
+                        <article class="project-card">
+                            <div class="project-image">🎨</div>
+                            <div class="project-content">
+                                <h3>Portfolio Website</h3>
+                                <p>A fully responsive portfolio showcasing Grid for macro layout and Flexbox for component-level organization.</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-image">🛒</div>
+                            <div class="project-content">
+                                <h3>E-commerce Store</h3>
+                                <p>Product grid that reflows from 1 column on mobile to 4 columns on desktop using auto-fit and minmax().</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-image">📰</div>
+                            <div class="project-content">
+                                <h3>News Magazine</h3>
+                                <p>Magazine layout with featured articles, sidebar, and responsive card grids. Perfect for content-driven sites.</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-image">💼</div>
+                            <div class="project-content">
+                                <h3>Dashboard App</h3>
+                                <p>Data visualization dashboard with hamburger navigation and responsive widget grids that stack on mobile.</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-image">🍔</div>
+                            <div class="project-content">
+                                <h3>Restaurant Menu</h3>
+                                <p>Food delivery app interface with popover menu API and properly sized touch targets for thumb-friendly design.</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                        <article class="project-card">
+                            <div class="project-image">📱</div>
+                            <div class="project-content">
+                                <h3>Mobile App Landing</h3>
+                                <p>Landing page built with mobile-first mentality. Hamburger menu becomes horizontal nav on tablet and desktop.</p>
+                                <button class="btn" style="margin-top: auto;">View Project</button>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+
+                <!-- Checklist Section -->
+                <section style="margin: var(--spacing-lg) 0; padding: var(--spacing); background: var(--light); border-radius: 8px;">
+                    <h2>Implementation Checklist</h2>
+                    <div style="display: grid; gap: 0.75rem; margin-top: 1rem;">
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Meta viewport tag (width=device-width, initial-scale=1)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Mobile-first base CSS</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Grid layout for page architecture</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Flexbox for components</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Fluid units (rem, %, vw, clamp)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Hamburger menu (popover API)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>Accessible touch targets (44x44px)</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; min-height: 44px;">
+                            <input type="checkbox" checked disabled style="width: 20px; height: 20px; margin-right: 0.75rem; cursor: pointer;">
+                            <span>User-controlled zoom support (500%)</span>
+                        </label>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="contact">
+            <div class="footer-inner">
+                <div class="footer-section">
+                    <h3>Product</h3>
+                    <a href="#features">Features</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Documentation</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <a href="#">Blog</a>
+                    <a href="#">Guides</a>
+                    <a href="#">CSS Tricks</a>
+                    <a href="#">Community</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <a href="#">About</a>
+                    <a href="#">Contact</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Terms</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Design Studio. Built with responsive principles. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

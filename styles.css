@@ -1,0 +1,439 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --secondary: #10b981;
+    --dark: #1f2937;
+    --light: #f3f4f6;
+    --spacing: clamp(1rem, 2vw, 2rem);
+    --spacing-lg: clamp(1.5rem, 4vw, 3rem);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--dark);
+    background: #fff;
+}
+
+/* FLUID TYPOGRAPHY */
+h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+h3 {
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+}
+
+p {
+    font-size: clamp(0.95rem, 1.2vw, 1.125rem);
+    margin-bottom: 1rem;
+}
+
+/* GRID ARCHITECTURE (macro layout) */
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 0;
+}
+
+/* ===== HEADER / NAVIGATION ===== */
+header {
+    background: var(--dark);
+    color: white;
+    padding: 1rem var(--spacing);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: clamp(1.25rem, 3vw, 1.5rem);
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+/* Hamburger menu toggle button */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    transition: background 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    font-size: clamp(0.95rem, 1.1vw, 1rem);
+}
+
+nav a:hover {
+    background: var(--primary);
+    border-radius: 4px;
+}
+
+nav a:active {
+    background: var(--secondary);
+}
+
+/* Mobile hamburger menu state */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--dark);
+        flex-direction: column;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    nav.active {
+        max-height: 400px;
+    }
+
+    nav a {
+        padding: 1rem var(--spacing);
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+    padding: var(--spacing-lg) var(--spacing);
+}
+
+.content-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 2px solid var(--light);
+}
+
+.hero h1 {
+    color: var(--primary);
+}
+
+.hero p {
+    color: #6b7280;
+    line-height: 1.8;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* CTA Button - Accessible Touch Target (min 44x44px) */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1.5rem;
+    min-width: 44px;
+    min-height: 44px;
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: clamp(0.95rem, 1vw, 1rem);
+    font-weight: 600;
+    transition: all 0.3s ease;
+    user-select: none;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+/* Features Grid (using FLEXBOX for component level) */
+.features {
+    margin: var(--spacing-lg) 0;
+}
+
+.features-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.feature-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing);
+    background: var(--light);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.1);
+    transform: translateY(-2px);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--spacing-lg);
+    }
+
+    .feature-card {
+        flex-direction: column;
+    }
+}
+
+/* Portfolio / Projects Grid */
+.projects {
+    margin: var(--spacing-lg) 0;
+}
+
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    border: 1px solid var(--light);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.project-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 3rem;
+}
+
+.project-content {
+    padding: var(--spacing);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    transform: translateY(-4px);
+}
+
+@media (min-width: 768px) {
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+    }
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--dark);
+    color: white;
+    padding: var(--spacing-lg) var(--spacing);
+    margin-top: auto;
+}
+
+.footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing);
+}
+
+.footer-section h3 {
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+}
+
+.footer-section a {
+    color: #d1d5db;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+}
+
+.footer-section a:hover {
+    color: var(--secondary);
+}
+
+@media (min-width: 768px) {
+    .footer-inner {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-lg);
+    }
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: var(--spacing);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #9ca3af;
+}
+
+/* ===== ACCESSIBILITY ===== */
+/* Ensure focus visible for keyboard navigation */
+a:focus, button:focus {
+    outline: 3px solid var(--secondary);
+    outline-offset: 2px;
+}
+
+/* Allow up to 500% zoom without horizontal scroll */
+@media (max-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ===== RESPONSIVE BREAKPOINTS ===== */
+/* Mobile: 0-480px (base) */
+
+/* Tablet: 480-768px */
+@media (min-width: 480px) {
+    :root {
+        --spacing: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: 768px+ */
+@media (min-width: 768px) {
+    :root {
+        --spacing: 1.5rem;
+        --spacing-lg: 3rem;
+    }
+
+    main {
+        padding: 3rem 1.5rem;
+    }
+
+    .footer-inner {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Large Desktop: 1024px+ */
+@media (min-width: 1024px) {
+    main {
+        padding: 4rem 2rem;
+    }
+}
+
+/* Extra Large: 1440px+ (future-proof) */
+@media (min-width: 1440px) {
+    .content-wrapper {
+        max-width: 1400px;
+    }
+}
+
+/* Print styles */
+@media print {
+    header, footer, .menu-toggle, nav {
+        display: none;
+    }
+
+    body {
+        background: white;
+    }
+
+    .project-card {
+        page-break-inside: avoid;
+    }
+}
